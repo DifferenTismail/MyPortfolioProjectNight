@@ -47,10 +47,10 @@ namespace MyPortfolioProjectNight.Controllers
         {
             var value = context.SocialMedia.Find(id);
 
-            if (value != null) // Eğer kayıt bulunursa
+            if (value != null)
             {
-                value.Active = false; // Active alanını false yap
-                context.SaveChanges(); // Değişiklikleri kaydet
+                value.Active = false; 
+                context.SaveChanges();
             }
 
             return RedirectToAction("SocialMediaList");
