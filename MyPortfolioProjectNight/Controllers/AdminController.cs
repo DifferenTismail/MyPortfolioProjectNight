@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using MyPortfolioProjectNight.Models;
 namespace MyPortfolioProjectNight.Controllers
 {
     public class AdminController : Controller
     {
-        // GET: Admin
+        DbMyPortfolioNightEntities context =new DbMyPortfolioNightEntities();
         public ActionResult Index()
         {
             return View();
@@ -19,6 +19,7 @@ namespace MyPortfolioProjectNight.Controllers
         }
         public PartialViewResult PartialSidebar()
         {
+            ViewBag.photo = context.Profile.Select(x => x.ImageUrl).FirstOrDefault();
             return PartialView();
         }
         public PartialViewResult PartialNavbar()
