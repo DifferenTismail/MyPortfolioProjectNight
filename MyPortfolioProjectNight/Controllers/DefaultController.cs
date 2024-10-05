@@ -87,7 +87,8 @@ namespace MyPortfolioProjectNight.Controllers
         }
         public PartialViewResult PartialService()
         {
-            return PartialView();
+            var value = context.Service.ToList();
+            return PartialView(value);
         }
         public PartialViewResult PartialPortfolio()
         {
