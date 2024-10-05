@@ -41,10 +41,10 @@ Bu projede, geleneksel bir CV’yi interaktif ve dinamik bir web platformuna dö
 📊 **Chart.js Plugin** ile etkileyici grafikler oluşturuldu.
 
 #### 🔒 **Veri Tabanı **
-![Ekran Alıntısı](https://github.com/user-attachments/assets/17852914-a903-4da7-a710-b2e591ee41a1)
+![Project](Photos/veriTabani.jpg)
 
 ### 🎨 GÖRSELLER
-![Project](Photos/veriTabani.jpg)
+
 ![Project 1](Photos/Portfolio.jpg)
 ![Project 2](Photos/experience.jpg)
 ![Project 3](Photos/contact.jpg)
