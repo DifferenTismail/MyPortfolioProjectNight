@@ -35,7 +35,7 @@ Bu projede, geleneksel bir CV’yi interaktif ve dinamik bir web platformuna dö
 📄 **Paging** özelliği ile Yetenekler sayfasının görünümü düzenlendi.
 
 #### 🔒 **Veri Tabanı **
-![Project](Photos/veriTabani.jpg)
+![Project](Photos/veriTabani2.jpg)
 
 ### 🎨 GÖRSELLER
 
