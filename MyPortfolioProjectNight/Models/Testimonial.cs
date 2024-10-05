@@ -12,12 +12,12 @@ namespace MyPortfolioProjectNight.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class SocialMedia
+    public partial class Testimonial
     {
-        public int SocialMediaID { get; set; }
+        public int TestimonialID { get; set; }
+        public string Name { get; set; }
         public string Title { get; set; }
-        public string Url { get; set; }
-        public string Icon { get; set; }
-        public Nullable<bool> Active { get; set; }
+        public string Description { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
