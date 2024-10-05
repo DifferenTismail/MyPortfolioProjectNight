@@ -30,15 +30,9 @@ Bu projede, geleneksel bir CV’yi interaktif ve dinamik bir web platformuna dö
 
 🔍 LINQ sorguları ile veri yönetimi sağlandı.
 
-🗄️ MSSQL Server ile veritabanı yönetimi gerçekleştirildi.
-
-📥 **DropDownList** ile veri çekme işlemleri yapıldı.
-
 🔄 **PartialView** yapısı ile sayfalar arası geçişler kolaylaştırıldı.
 
 📄 **Paging** özelliği ile Yetenekler sayfasının görünümü düzenlendi.
-
-📊 **Chart.js Plugin** ile etkileyici grafikler oluşturuldu.
 
 #### 🔒 **Veri Tabanı **
 ![Project](Photos/veriTabani.jpg)
