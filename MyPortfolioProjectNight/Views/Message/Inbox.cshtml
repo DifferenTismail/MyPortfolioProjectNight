@@ -17,15 +17,17 @@
     </tr>
 
     @foreach (var item in Model)
-
     {
         count++;
         <tr>
-
             <td>@count</td>
             <td>@item.NameSurname</td>
             <td>@item.SendDate</td>
-            <td>@item.Subject</td>
+
+            <!-- Kategoriye göre renk seçimi -->
+            <td style="color:@GetCategoryColor(item.Subject)">
+                @item.Subject
+            </td>
 
             @if (item.IsRead == false)
             {
@@ -36,10 +38,36 @@
                 <td><a href="/Message/ChangeMessageStatusToFalse/@item.ContactID" class="btn btn-dark">Okunmadı Olarak İşaretle</a></td>
             }
 
-
             <td><a href="#" class="btn btn-warning">Mesajı Aç</a></td>
             <td><a href="#" class="btn btn-danger">Mesajı Sil</a></td>
         </tr>
+    }
+
+    @functions {
+        string GetCategoryColor(string subject)
+        {
+            switch (subject)
+            {
+                case "Teşekkür":
+                    return "green";
+                case "Öneri":
+                    return "green";
+                case "Proje Talebi":
+                    return "blue";
+                case "Referans":
+                    return "purple";
+                case "Toplantı":
+                    return "orange";
+                case "Görüşme":
+                    return "brown";
+                case "Reklam":
+                    return "red";
+                case "Diğer":
+                    return "gray";
+                default:
+                    return "black";
+            }
+        }
     }
 </table>
 

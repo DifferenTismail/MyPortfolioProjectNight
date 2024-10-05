@@ -1,0 +1,22 @@
+﻿@model MyPortfolioProjectNight.Models.Portfolio
+@{
+    ViewBag.Title = "UpdatePortfolio";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Proje Güncelleme Sayfası</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.PortfolioID)
+    <label>Proje Başlığı</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label>Proje Alt Açıklama</label>
+    @Html.TextBoxFor(x => x.SubTitle, new { @class = "form-control" })
+    <br />
+    <label>Fotoğraf Url'si</label>
+    @Html.TextAreaFor(x => x.ImageUrl, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-info">Projeyi Güncelle</button>
+</form>

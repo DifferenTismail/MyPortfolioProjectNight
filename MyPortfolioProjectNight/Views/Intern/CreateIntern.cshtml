@@ -1,13 +1,11 @@
-﻿@model MyPortfolioProjectNight.Models.Experience
+﻿@model MyPortfolioProjectNight.Models.Intern
 @{
-    ViewBag.Title = "UpdateExperience";
+    ViewBag.Title = "CreateIntern";
     Layout = "~/Views/Admin/Index.cshtml";
 }
-
-<h2 class="mb-4">Deneyim Güncelleme Sayfası</h2>
+<h2 class="mb-4">Staj Ekleme Sayfası</h2>
 
 <form method="post">
-    @Html.HiddenFor(x => x.ExperienceID)
 
     <label>Deneyim Başlığı</label>
     @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
@@ -18,6 +16,11 @@
     <label>Deneyim Açıklaması</label>
     @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
     <br />
-    <button class="btn btn-info">Deneyimi Güncelle</button>
+    <label>Başlagıç Tarihi</label>
+    @Html.TextBoxFor(x => x.StartDate, new { @class = "form-control" })
+    <br />
+    <label>Bitiş Tarihi</label>
+    @Html.TextAreaFor(x => x.EndDate, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Stajı Ekle</button>
 </form>
-

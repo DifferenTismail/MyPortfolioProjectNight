@@ -1,0 +1,24 @@
+﻿@model MyPortfolioProjectNight.Models.SocialMedia
+@{
+    ViewBag.Title = "CreateSocialMedia";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Sosya Medya Ekleme Sayfası</h2>
+
+<form method="post">
+
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label>Url</label>
+    @Html.TextBoxFor(x => x.Url, new { @class = "form-control" })
+    <br />
+    <label>Icon</label>
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+    <br />
+    <label>Aktif</label>
+    @Html.TextBoxFor(x => x.Active, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Soayal Medya Ekle</button>
+</form>

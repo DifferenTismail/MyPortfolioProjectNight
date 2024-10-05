@@ -1,0 +1,85 @@
+﻿@model List<MyPortfolioProjectNight.Models.Skill>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+<style>
+    #chartdiv {
+        width: 100%;
+        height: 500px;
+    }
+</style>
+
+<h2>Yetenek Chartı</h2>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+<script>
+    window.onload = function () {
+        var skillNames = [];
+        var skillValues = [];
+
+        @foreach (var skill in Model)
+        {
+            <text>
+                skillNames.push("@skill.SkillName");
+                skillValues.push(@skill.Rate);
+            </text>
+        }
+
+        var ctx = document.getElementById('skillChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: skillNames,
+                datasets: [{
+                    label: 'Yetenek Değerleri',
+                    data: skillValues,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',  // Kırmızı
+                        'rgba(54, 162, 235, 0.7)',  // Mavi
+                        'rgba(255, 206, 86, 0.7)',   // Sarı
+                        'rgba(75, 192, 192, 0.7)',   // Yeşil
+                        'rgba(153, 102, 255, 0.7)',  // Mor
+                        'rgba(255, 159, 64, 0.7)'    // Turuncu
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',    // Kırmızı
+                        'rgba(54, 162, 235, 1)',    // Mavi
+                        'rgba(255, 206, 86, 1)',     // Sarı
+                        'rgba(75, 192, 192, 1)',     // Yeşil
+                        'rgba(153, 102, 255, 1)',    // Mor
+                        'rgba(255, 159, 64, 1)'      // Turuncu
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Yetenek ve Değer Grafiği'
+                },
+                plugins: {
+                    datalabels: {
+                        color: '#fff', // Yazı rengi
+                        formatter: (value, ctx) => {
+                            // Yetenek değerlerini yazdırıyoruz
+                            let percentage = value + '%';
+                            return percentage;
+                        },
+                        font: {
+                            weight: 'bold', // Yazı kalınlığı
+                            size: 14, // Yazı boyutu
+                        },
+                    }
+                }
+            }
+        });
+    };
+</script>
+
+<div class="chart-container" style="width: 80%; max-width: 600px; margin: auto;">
+    <canvas id="skillChart"></canvas>
+</div>

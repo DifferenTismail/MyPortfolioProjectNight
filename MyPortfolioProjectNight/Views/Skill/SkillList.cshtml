@@ -1,4 +1,7 @@
-﻿@model List<MyPortfolioProjectNight.Models.Skill>
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<MyPortfolioProjectNight.Models.Skill>
+
 @{
     ViewBag.Title = "SkillList";
     Layout = "~/Views/Admin/Index.cshtml";
@@ -11,6 +14,7 @@
         <th>ID</th>
         <th>Başlık</th>
         <th>Değer</th>
+        <th>Aktif</th>
         <th>Sil</th>
         <th>Güncelle</th>
     </tr>
@@ -21,9 +25,17 @@
             <td>@item.SkillID</td>
             <td>@item.SkillName</td>
             <td>@item.Rate</td>
+            <td>@item.Status</td>
             <td><a href="/Skill/DeleteSkill/@item.SkillID" class="btn btn-danger">Sil</a></td>
             <td><a href="/Skill/UpdateSkill/@item.SkillID" class="btn btn-success">Güncelle</a></td>
         </tr>
     }
 
 </table>
+
+@Html.PagedListPager((IPagedList)Model,paged=>Url.Action("SkillList",new { paged }),new PagedListRenderOptions
+{
+    LiElementClasses=new List<string>
+    { "page-link"}
+})
+<a href="/Skill/CreateSkill/" class="btn btn-primary">Yeni Yetenek Oluştur</a>

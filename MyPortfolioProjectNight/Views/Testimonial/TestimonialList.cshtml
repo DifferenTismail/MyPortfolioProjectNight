@@ -1,0 +1,43 @@
+﻿@model List<MyPortfolioProjectNight.Models.Testimonial>
+@{
+    ViewBag.Title = "TestimonialList";
+    Layout = "~/Views/Admin/Index.cshtml";
+    int count = 0;
+}
+
+<h2 class="mb-4">Referanslarım </h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>İsim</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Fotoğraf Url</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Name</td>
+            <td>@item.Title</td>
+
+            <!-- Description metni 50 karakter ile sınırlandırılıyor -->
+            <td>@(item.Description.Length > 50 ? item.Description.Substring(0, 50) + "..." : item.Description)</td>
+
+            <!-- ImageUrl metni 30 karakter ile sınırlandırılıyor -->
+            <td>@(item.ImageUrl.Length > 30 ? item.ImageUrl.Substring(0, 30) + "..." : item.ImageUrl)</td>
+
+            <td><a href="/Testimonial/DeleteTestimonial/@item.TestimonialID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Testimonial/UpdateTestimonial/@item.TestimonialID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Testimonial/CreateTestimonial" class="btn btn-info">Yeni Referans Girişi</a>
+
+
