@@ -1,11 +1,13 @@
-﻿@model MyPortfolioProjectNight.Models.Education 
+﻿@model MyPortfolioProjectNight.Models.Education
 @{
-    ViewBag.Title = "CreateEducation";
+    ViewBag.Title = "UpdateEducation";
     Layout = "~/Views/Admin/Index.cshtml";
 }
-<h2 class="mb-4">Yeni Eğitim Hayatı Bilgisi Girişi</h2>
-<form method="post">
 
+<h2 class="mb-4">Eğitim Hayatı Bilgisi Güncelleme</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.EducationID)
     <label>Başlık</label>
     @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
     <br />
@@ -21,5 +23,5 @@
     <label>Bitiş Tarihi</label>
     @Html.TextAreaFor(x => x.EndDate, new { @class = "form-control" })
     <br />
-    <button class="btn btn-info">Eğitimi Ekle</button>
+    <button class="btn btn-info">Stajı Ekle</button>
 </form>
