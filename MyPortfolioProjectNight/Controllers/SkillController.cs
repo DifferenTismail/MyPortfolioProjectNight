@@ -5,15 +5,16 @@ using System.Linq;
 using System.Security.Policy;
 using System.Web;
 using System.Web.Mvc;
-
+using PagedList;
+using PagedList.Mvc;
 namespace MyPortfolioProjectNight.Controllers
 {
     public class SkillController : Controller
     {
         DbMyPortfolioNightEntities context = new DbMyPortfolioNightEntities();
-        public ActionResult SkillList()
+        public ActionResult SkillList(int paged = 1)
         {
-            var values = context.Skill.ToList();
+            var values = context.Skill.ToList().ToPagedList(paged, 5);
             return View(values);
         }
 
